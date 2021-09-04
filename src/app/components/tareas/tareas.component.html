@@ -1,0 +1,35 @@
+<div class="conten">
+  <input
+    [(ngModel)]="NombreTarea"
+    type="text"
+    class="input"
+    (keyup.enter)="addTarea()"
+    value="{{ nombreTareaEdit }}"
+  />
+  <div>
+    <h3 class="textNo" *ngIf="listTareas.length === 0; else list">
+      Noy Hay Actividades para mostrar
+    </h3>
+    <ng-template #list>
+      <div class="contenList">
+        <ul *ngFor="let tarea of listTareas; let i = index">
+          <li *ngIf="tarea.estado; else falses" class="list">
+            <p class="listName">
+              {{ tarea.nombre }}
+            </p>
+            <span class="icon" (click)="completeTarea(i)">COMPLETE</span>&nbsp;
+            <span class="icon" (click)="deleteTarea(i)">DELETE</span>
+          </li>
+          <ng-template #falses>
+            <li class="list">
+              <p class="listName complete">
+                {{ tarea.nombre }}
+              </p>
+              <span class="icon" (click)="deleteTarea(i)">DELETE</span>
+            </li>
+          </ng-template>
+        </ul>
+      </div>
+    </ng-template>
+  </div>
+</div>

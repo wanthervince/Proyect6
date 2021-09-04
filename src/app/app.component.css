@@ -1,0 +1,7 @@
+.conten {
+  width: 100%;
+  height: 89.8vh;
+  background-image: url(../assets/todo.jpg);
+  display: flex;
+  justify-content: center;
+}
